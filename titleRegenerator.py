@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import openai
 
-openai.api_key = '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'
+#Insert API Key
 
 def is_article(soup):
     # Check if the page seems to be an article (customize these conditions based on the structure)
