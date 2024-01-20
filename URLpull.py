@@ -22,6 +22,7 @@ def main():
         if 'Google Chrome' in active_window.title:
             url = get_chrome_url()
             print(f"Current URL: {url}")
+        print("SERACHING")
         time.sleep(5)  # Check every 5 seconds
 
 if __name__ == "__main__":
