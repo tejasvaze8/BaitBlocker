@@ -7,5 +7,12 @@
     "action": {
         "default_popup": "index.html",
         "default_title": "Bait Blocker"
-    }
+    },
+    "permissions": [
+        "storage",
+        "tabs"
+      ],
+      "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+      }
 }

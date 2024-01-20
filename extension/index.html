@@ -1,13 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Hello Extension</title>
+  <title>Bait Blocker</title>
+  <link rel="stylesheet" href="styles/main.css"/>
   <style>
-    body {
-      font-family: 'Arial', sans-serif;
-      text-align: center;
-      margin: 20px;
-    }
     input {
       width: 70%;
       padding: 10px;
@@ -16,21 +12,15 @@
   </style>
 </head>
 <body>
-  <h1>Hello Extension</h1>
+  <h1>Bait Blocker</h1>
   
   <form id="urlForm">
     <label for="urlInput">Enter URL:</label>
     <input type="text" id="urlInput" placeholder="https://example.com">
-    <button type="button" onclick="openUrl()">Open</button>
+    <button type="button" id="openButton">Open</button>
   </form>
 
-  <script>
-    function openUrl() {
-      var url = document.getElementById("urlInput").value;
-      if (url) {
-        chrome.tabs.create({ url: url });
-      }
-    }
-  </script>
+  <script src="script.js"></script>
+
 </body>
 </html>
