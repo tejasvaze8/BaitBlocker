@@ -1,22 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toronto Concert Line-up</title>
+  <title>Hello Extension</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      margin: 20px;
+    }
+    input {
+      width: 70%;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
 </head>
-
 <body>
-    <div>
-        <h2>Upcoming Toronto Concerts</h2>
-        <ul>
-            <li id="concerts"></li>
-        </ul>
-    </div>
+  <h1>Hello Extension</h1>
+  
+  <form id="urlForm">
+    <label for="urlInput">Enter URL:</label>
+    <input type="text" id="urlInput" placeholder="https://example.com">
+    <button type="button" onclick="openUrl()">Open</button>
+  </form>
 
+  <script>
+    function openUrl() {
+      var url = document.getElementById("urlInput").value;
+      if (url) {
+        chrome.tabs.create({ url: url });
+      }
+    }
+  </script>
 </body>
-<script src="script.js"></script>
-
 </html>

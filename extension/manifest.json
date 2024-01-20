@@ -1,11 +1,11 @@
 {
-    "name": "Upcoming Toronto Concerts",
+    "name": "Bait Blocker",
     "version": "1.0.0",
-    "description": "This is an extension to look up concerts coming to Toronto",
+    "description": "Bait Blocker",
     "manifest_version": 3,
-    "author": "Tiffany J",
+    "author": "us",
     "action": {
         "default_popup": "index.html",
-        "default_title": "Upcoming Toronto Concerts"
+        "default_title": "Bait Blocker"
     }
 }
