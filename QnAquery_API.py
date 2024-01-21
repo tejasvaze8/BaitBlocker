@@ -15,7 +15,7 @@ DB_NAME = "BaitBlocker"
 COLLECTION_NAME = "QandAvectorStore"
 ATLAS_VECTOR_SEARCH_INDEX_NAME = "vector_index"
 MONGO_URI = "mongodb+srv://tvaze:gmjg94r0F7Y8fMWW@cluster0.koafm.mongodb.net/?retryWrites=true&w=majority"
-openai_api_key = "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"
+openai_api_key = "add api key"
 os.environ["OPENAI_API_KEY"] = "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"
 
 @app.route('/ask_question', methods=['POST'])
