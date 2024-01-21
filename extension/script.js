@@ -130,6 +130,7 @@ function sendUrlEmbeded(url){
 }
 
 function sendQuestion(Q){
+  document.getElementById("loadingSpinner").style.display = "block";
   const fullApiUrl = `${apiEndpoint3}`;
   const headers = {
     'Content-Type': 'application/json',
@@ -142,15 +143,18 @@ function sendQuestion(Q){
   })
     .then(response => {
       if (!response.ok) {
+        document.getElementById("loadingSpinner").style.display = "none";
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
       return response.json();
     })
     .then(data => {
+      document.getElementById("loadingSpinner").style.display = "none";
       createAnswer(data.result);
       
     })
     .catch(error => {
+      document.getElementById("loadingSpinner").style.display = "none";
       console.error('Fetch error:', error);
     });
 }
@@ -190,6 +194,8 @@ function createQuestion(){
 
 function createAnswer(text) {
   var answer = document.getElementById("answerText");
+  var answerTitle = document.getElementById("answerTitle");
+  answerTitle.textContent = "Answer";
   answer.textContent = text; 
   if (answer.style.visibility=='visible') {
     answer.style.visibility = 'visible';

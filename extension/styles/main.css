@@ -40,6 +40,12 @@ h1 {
     margin: 10px;
   }
 
+  #answerTitle {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+
   #summary {
     margin: 10px;
     text-align: justify;
