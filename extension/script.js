@@ -17,6 +17,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 
 });
 function callApi(apiEndpoint, urlParameter) {
+  document.getElementById("errorImage").style.display = "none";
   const fullApiUrl = `${apiEndpoint}/generate_summary`;
   const headers = {
     'Content-Type': 'application/json',
@@ -41,6 +42,8 @@ function callApi(apiEndpoint, urlParameter) {
       document.getElementById("loadingSpinner").style.display = "none";
     })
     .catch(error => {
+      document.getElementById("loadingSpinner").style.display = "none";
+      document.getElementById("errorImage").style.display = "block";
       console.error('Fetch error:', error);
     });
 }
@@ -60,7 +63,7 @@ function openUrl() {
   if (url) {
     callApi(apiEndpoint, url);
     document.getElementById("loadingSpinner").style.display = "block";
-    sendUrlEmbeded(url);  
+    //sendUrlEmbeded(url);  
     saveUrl(url);
   }
 }

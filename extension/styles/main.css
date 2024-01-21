@@ -88,7 +88,7 @@ h1 {
     #loadingSpinner {
       display: none; /* Initially hide the loading spinner */
       position: fixed;
-      top: 50%;
+      top: 25%;
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 9999;
@@ -98,3 +98,27 @@ h1 {
       width: 200px;
       height: auto;    
     }
+
+    #errorImage {
+      display: none;
+      position: fixed;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      animation: displayFor4Seconds 4s linear forwards;
+    }
+    
+    img.error_image {
+      width: 200px;
+      height: auto;   
+    }
+
+    @keyframes displayFor4Seconds  {
+      0%, 100% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        display: none;
+      }
