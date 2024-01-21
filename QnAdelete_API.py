@@ -5,7 +5,7 @@ from pymongo import MongoClient
 from flask_cors import CORS
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "insert API key"
 MONGO_URI = "mongodb+srv://tvaze:gmjg94r0F7Y8fMWW@cluster0.koafm.mongodb.net/?retryWrites=true&w=majority"
 app = Flask(__name__)
 CORS(app, resources={"/delete_all": {"origins": "*"}})  # Allow any origin
