@@ -89,7 +89,7 @@ function displayUrl(url) {
 function new_Title(title) {
   var newTitle = document.getElementById("newTitle");
   var newTitleName = document.getElementById("newTitleName");
-  newTitle.textContent = "New Title";
+  newTitle.textContent = "Revised Title";
   newTitleName.textContent = title;
 }
 function generateSummary(summaryText){
