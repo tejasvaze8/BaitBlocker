@@ -42,7 +42,9 @@ function callApi(apiEndpoint, urlParameter) {
     })
     .then(data => {
       // Handle the data from the API response
-      console.log('API response:', data);
+      console.log(data);
+      new_Title(data.Revised_title);
+      generateSummary(data.Revised_summary);
       // You can do further processing or update UI based on the API response here
     })
     .catch(error => {
@@ -58,16 +60,17 @@ document.getElementById("openButton").addEventListener("click", function() {
   openUrl();
 });
 
+document.getElementById("openButton2").addEventListener("click", function() {
+  createAnswer("HELLO THIS IS TEXT");
+});
+
 function openUrl() {
   var url = document.getElementById("urlInput").value;
   if (url) {
     callApi(apiEndpoint, url);
     saveUrl(url);
 
-    new_Title(url);//change to new title later.
-    generateSummary(story);
     createQuestion();
-    createAnswer(url);
   }
 }
 function showURL(urlT){
@@ -105,10 +108,10 @@ function createQuestion(){
 
 function createAnswer(text) {
   var answer = document.getElementById("answerText");
-  answer.textContent = text;
   if (answer.style.visibility=='visible') {
     answer.style.visibility = 'hidden';
   }
   else 
     answer.style.visibility = 'visible';  
+    answer.textContent = text; 
 }
