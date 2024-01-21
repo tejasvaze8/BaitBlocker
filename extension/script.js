@@ -1,7 +1,7 @@
 // script.js
 const apiEndpoint = 'http://100.64.161.177:5000/';
 const apiEndpoint2 = 'http://100.64.165.206:5002/process_link';
-const apiEndpoint3 = 'http://100.64.161.177:5000/';
+const apiEndpoint3 = 'http://100.64.165.206:5003/ask_question';
 const apiEndpointDelete = 'http://100.64.165.206:5000/delete_all';
 
 // comment
@@ -61,7 +61,9 @@ document.getElementById("openButton").addEventListener("click", function() {
 });
 
 document.getElementById("openButton2").addEventListener("click", function() {
-  createAnswer("HELLO THIS IS TEXT");
+  var questionFull = document.getElementById("questionInput").value;
+  sendQuestion(questionFull);
+
 });
 
 function openUrl() {
@@ -127,12 +129,12 @@ function sendUrlEmbeded(url){
     });
 }
 
-function sendQuestion(url){
-  const fullApiUrl = `${apiEndpoint3}/generate_summary`;
+function sendQuestion(Q){
+  const fullApiUrl = `${apiEndpoint3}`;
   const headers = {
     'Content-Type': 'application/json',
   };
-  const requestBody = JSON.stringify({ url: url });
+  const requestBody = JSON.stringify({ question: Q });
   fetch(fullApiUrl, {
     method: 'POST',
     headers: headers,
@@ -145,7 +147,7 @@ function sendQuestion(url){
       return response.json();
     })
     .then(data => {
-      console.log("sucess", data);
+      createAnswer(data.result);
       
     })
     .catch(error => {
@@ -188,10 +190,10 @@ function createQuestion(){
 
 function createAnswer(text) {
   var answer = document.getElementById("answerText");
+  answer.textContent = text; 
   if (answer.style.visibility=='visible') {
     answer.style.visibility = 'visible';
   }
   else 
     answer.style.visibility = 'visible';  
-    answer.textContent = text; 
 }
