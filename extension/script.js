@@ -1,6 +1,6 @@
 // script.js
 const apiEndpoint = 'http://100.64.161.177:5000/';
-const apiEndpoint2 = 'http://100.64.161.177:5000/';
+const apiEndpoint2 = 'http://100.64.165.206:5002/process_link';
 const apiEndpoint3 = 'http://100.64.161.177:5000/';
 const apiEndpointDelete = 'http://100.64.165.206:5000/delete_all';
 
@@ -70,7 +70,7 @@ function openUrl() {
     callApi(apiEndpoint, url);
     document.getElementById("loadingSpinner").style.display = "block";
     deleteCache();
-    //sendUrlEmbeded(url);  
+    sendUrlEmbeded(url);  
     saveUrl(url);
   }
 }
@@ -93,7 +93,7 @@ function deleteCache() {
     return response.json();
   })
   .then(data => {
-    console.log('API response:', data);
+    console.log('API response: succes 4', data);
   })
   .catch(error => {
     console.error('Fetch error:', error);
@@ -101,7 +101,7 @@ function deleteCache() {
 }
 
 function sendUrlEmbeded(url){
-  const fullApiUrl = `${apiEndpoint2}/generate_summary`;
+  const fullApiUrl = `${apiEndpoint2}`;
   const headers = {
     'Content-Type': 'application/json',
   };
@@ -118,7 +118,7 @@ function sendUrlEmbeded(url){
       return response.json();
     })
     .then(data => {
-      console.log("sucess", data);
+      console.log("sucess for 2", data);
       //createAnswer(data.)
       
     })
