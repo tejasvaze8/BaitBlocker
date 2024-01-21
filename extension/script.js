@@ -49,7 +49,7 @@ function callApi(apiEndpoint, urlParameter) {
       // Handle errors during the fetch operation
       console.error('Fetch error:', error);
     });
-
+   
   
 }
 
