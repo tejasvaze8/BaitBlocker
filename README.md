@@ -1,4 +1,4 @@
-# BaitBlocker
+# baitblocker
 
 <img src="extension/baitblaocker22.png" alt="Extension Logo" width="400" height="266">
 
