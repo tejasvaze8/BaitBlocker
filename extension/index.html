@@ -3,30 +3,28 @@
 <head>
   <title>Bait Blocker</title>
   <link rel="stylesheet" href="styles/main.css"/>
-  <style>
-    input {
-      width: 70%;
-      padding: 10px;
-      margin-bottom: 10px;
-    }
-    .space10 {
-      padding: 8px;
-    }
-  </style>
 </head>
 <body>
   <h1>Bait Blocker</h1>
-  
+  <div id="urlTest"></div>
+
   <form id="urlForm">
-    <label for="urlInput">Enter URL:</label>
-    <input type="text" id="urlInput" placeholder="https://example.com">
-    <button type="button" id="openButton">Open</button>
+    <div class="center">
+      <label for="urlInput">Enter URL:</label>
+      <input type="text" id="urlInput" placeholder="Type or paste URL">
+      <button type="button" id="openButton">Enter</button>
+    </div>
   </form>
   <!-- <div id="displayedUrl"></div> -->
 
+  <div class="center", id="questionBox">
+    <label for="urlInput">Enter Question:</label>
+    <input type="text" id="urlInput" placeholder="Type Question Here">
+    <button type="button" id="openButton">Enter</button>
+  </div>
+
   <div id="newTitle"></div>
   <div id="newTitleName"></div>
-  <div class="space10"></div>
   <div id="summaryTitle"></div>
   <div id="summary"></div>
 
