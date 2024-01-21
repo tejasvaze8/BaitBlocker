@@ -21,12 +21,13 @@
     "browser_action": {
       "default_popup": "popup.html",
       "default_icon": {
-        "16": "images/icon16.png",
-        "48": "images/icon48.png",
-        "128": "images/icon128.png"
+        "16": "baitblasocker2.png",
+        "48": "baitblasocker2.png",
+        "128": "baitblasocker2.png"
       }
     },
     "background": {
       "background.service_worker": ["script.js"]
+      
     }
 }

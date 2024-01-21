@@ -55,6 +55,7 @@ function callApi(apiEndpoint, urlParameter) {
   
 }
 
+
 var story = "In a quaint town, mysterious packages began arriving at doorsteps every Friday. No one knew the sender, yet the parcels held personalized gifts, uncannily fitting each recipient's desires. Speculation buzzed, and excitement grew with each delivery. As friendships formed over shared surprises, the once-quiet community blossomed into a tapestry of joy. Local businesses thrived, as townsfolk eagerly anticipated their weekly enchanting presents. The secret benefactor remained elusive, leaving the town enchanted in wonder. In the heart of uncertainty, the unspoken agreement was clear — the magic of the unknown had woven a tale of unity and kindness, forever altering their ordinary Fridays."
 document.getElementById("openButton").addEventListener("click", function() {
   openUrl();
@@ -100,7 +101,7 @@ function generateSummary(summaryText){
 function createQuestion(){
   var question = document.getElementById("questionBox");
   if (question.style.visibility=='visible') {
-    question.style.visibility = 'hidden';
+    question.style.visibility = 'visible';
   }
   else 
     question.style.visibility = 'visible';
@@ -109,7 +110,7 @@ function createQuestion(){
 function createAnswer(text) {
   var answer = document.getElementById("answerText");
   if (answer.style.visibility=='visible') {
-    answer.style.visibility = 'hidden';
+    answer.style.visibility = 'visible';
   }
   else 
     answer.style.visibility = 'visible';  

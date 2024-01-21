@@ -20,6 +20,11 @@ h1 {
     text-align: center;
     margin: 10px;
   } 
+  #extensionImage {
+    width: 225px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    /* You can use 'height' instead of 'width' if you want to set the height explicitly */
+  }
   
   #summaryTitle {
     font-size: 30px;
