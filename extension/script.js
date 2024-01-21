@@ -1,5 +1,8 @@
 // script.js
 const apiEndpoint = 'http://100.64.161.177:5000/';
+const apiEndpoint2 = 'http://100.64.161.177:5000/';
+const apiEndpoint3 = 'http://100.64.161.177:5000/';
+
 
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
   // tabs is an array of tab objects
@@ -14,45 +17,32 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 
 });
 function callApi(apiEndpoint, urlParameter) {
-  // Construct the full API URL
   const fullApiUrl = `${apiEndpoint}/generate_summary`;
-
-  // Define the request headers
   const headers = {
     'Content-Type': 'application/json',
-    // Add any additional headers if required by your API
   };
-
-  // Construct the request body
   const requestBody = JSON.stringify({ url: urlParameter });
-
-  // Make a POST request to the API
   fetch(fullApiUrl, {
     method: 'POST',
     headers: headers,
     body: requestBody,
   })
     .then(response => {
-      // Check if the response status is OK (status code 200-299)
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-      // Parse the response body as JSON
       return response.json();
     })
     .then(data => {
-      // Handle the data from the API response
       console.log(data);
       new_Title(data.Revised_title);
       generateSummary(data.Revised_summary);
-      // You can do further processing or update UI based on the API response here
+      createQuestion();
+      document.getElementById("loadingSpinner").style.display = "none";
     })
     .catch(error => {
-      // Handle errors during the fetch operation
       console.error('Fetch error:', error);
     });
-   
-  
 }
 
 
@@ -69,11 +59,65 @@ function openUrl() {
   var url = document.getElementById("urlInput").value;
   if (url) {
     callApi(apiEndpoint, url);
+    document.getElementById("loadingSpinner").style.display = "block";
+    sendUrlEmbeded(url);  
     saveUrl(url);
-
-    createQuestion();
   }
 }
+
+function sendUrlEmbeded(url){
+  const fullApiUrl = `${apiEndpoint2}/generate_summary`;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const requestBody = JSON.stringify({ url: url });
+  fetch(fullApiUrl, {
+    method: 'POST',
+    headers: headers,
+    body: requestBody,
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("sucess", data);
+      //createAnswer(data.)
+      
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}
+
+function sendQuestion(url){
+  const fullApiUrl = `${apiEndpoint3}/generate_summary`;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  const requestBody = JSON.stringify({ url: url });
+  fetch(fullApiUrl, {
+    method: 'POST',
+    headers: headers,
+    body: requestBody,
+  })
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("sucess", data);
+      
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
+}
+
 function showURL(urlT){
   var url = document.getElementById("urlTest");
   url.textContent = urlT
