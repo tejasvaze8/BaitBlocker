@@ -1,0 +1,147 @@
+body {
+    font: 100% / 1.5 Inconsolata, monospace;
+    color: hsl(230, 100%, 95%);
+    background-color: hsl(230, 40%, 10%);
+    font-weight: 300;
+    margin: 10px;
+    width: 500px;
+    /*border: 2px solid white; */
+  }
+
+h1 {
+  text-align: center;
+}
+
+  #questionBox {
+    visibility: hidden;
+  }
+
+  #newTitleName {
+    text-align: center;
+    margin: 10px;
+  } 
+  #extensionImage {
+    width: 225px; /* Adjust the width as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  
+  #summaryTitle {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+  #newTitle{
+    font-size: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    white-space: nowrap;
+    margin: 10px;
+  }
+
+  #answerTitle {
+    font-size: 30px;
+    text-align: center;
+    color: rgb(255, 255, 255);
+  }
+
+  #summary {
+    margin: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  #answerText {
+    margin: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    color: rgb(255, 255, 255);
+    visibility: hidden;
+  }
+
+  input {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .center {
+    text-align: center;
+  }
+
+  button {
+    width:200px;
+    border: 1px solid #fff;
+    border-radius: 1em;
+    background-color: transparent;
+    font: 100% / 1.5 Inconsolata, monospace;
+    color: #ffffff;
+    padding: 0.25em .5em;
+    margin-bottom:10px;
+    }
+
+    button:hover {
+      cursor: pointer;
+    }
+  
+    label {
+      font-size: 20px;
+      display:block;
+    }
+
+    #loadingSpinner {
+      display: none; /* Initially hide the loading spinner */
+      position: fixed;
+      top: 25%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    img.animated-gif {
+      width: 200px;
+      height: auto;    
+    }
+
+    #errorImage {
+      display: none;
+      position: fixed;
+      top: 75%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      animation: displayFor4Seconds 4s linear forwards;
+    }
+
+    img.error_image {
+      width: 200px;
+      height: auto;   
+    }
+
+    @keyframes displayFor4Seconds  {
+      0%, 100% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        display: none;
+      }
+    }
+
+    ::-webkit-scrollbar {
+      width: 20px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background-color: #d6dee1;
+      border-radius: 20px;
+      border: 6px solid transparent;
+      background-clip: content-box;
+    }
+    

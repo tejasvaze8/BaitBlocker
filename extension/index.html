@@ -1,22 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toronto Concert Line-up</title>
+  <title>Bait Blocker</title>
+  <link rel="stylesheet" href="styles/main.css"/>
 </head>
-
 <body>
-    <div>
-        <h2>Upcoming Toronto Concerts</h2>
-        <ul>
-            <li id="concerts"></li>
-        </ul>
+  <div class = "center">
+    <img src="baitblaocker22.png" alt="Extension Image" id = "extensionImage">
+  </div>
+  <div id="urlTest"></div>
+
+  <form id="urlForm">
+    <div class="center">
+      <label for="urlInput">Enter URL:</label>
+      <input type="text" id="urlInput" placeholder="Type or paste URL">
+      <button type="button" id="openButton">Enter</button>
     </div>
+  </form>
+  <!-- <div id="displayedUrl"></div> -->
+
+  <div class="center", id="questionBox">
+    <label for="urlInput">Enter Question:</label>
+    <input type="text" id="questionInput" placeholder="Type Question Here">
+    <button type="button" id="openButton2">Enter</button>
+  </div>
+
+  <div id="answerTitle"></div>
+  <div id="answerText"></div>
+
+  <div id="loadingSpinner"><image src="styles/WXfH.gif" class="animated-gif"></image></div>
+  <div id="errorImage"><image src="styles/1971017.png" class="error_image"></image></div>
+
+  <div id="newTitle"></div>
+  <div id="newTitleName"></div>
+  <div id="summaryTitle"></div>
+  <div id="summary"></div>
+
+  <script src="script.js"></script>
 
 </body>
-<script src="script.js"></script>
-
 </html>

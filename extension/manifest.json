@@ -1,11 +1,43 @@
 {
-    "name": "Upcoming Toronto Concerts",
+    "name": "Bait Blocker",
     "version": "1.0.0",
-    "description": "This is an extension to look up concerts coming to Toronto",
+    "description": "Bait Blocker",
     "manifest_version": 3,
-    "author": "Tiffany J",
+    "author": "us",
     "action": {
         "default_popup": "index.html",
-        "default_title": "Upcoming Toronto Concerts"
+        "default_title": "Bait Blocker"
+    },
+    "permissions": [
+        "storage",
+        "tabs",
+        "http://100.64.161.177:5000/",
+        "http://100.64.165.206:5000/delete_all",
+        "http://100.64.165.206:5002/process_link",
+        "http://100.64.165.206:5003/ask_question"
+    ],
+    "host_permissions": ["http://100.64.161.177:5000/", "http://100.64.165.206:5000/delete_all", "http://100.64.165.206:5002/process_link", "http://100.64.165.206:5003/ask_question"],
+
+
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    },
+    "icons": {
+      "16": "baitblaocker2.png",
+      "48": "baitblaocker2.png",
+      "128": "baitblaocker2.png"
+    },
+    "browser_action": {
+      "default_icon": {
+        "16": "baitblaocker2.png",
+        "48": "baitblaocker2.png",
+        "128": "baitblaocker2.png"
+      },
+      "default_popup": "baitblaocker22.png"
+
+    },
+    "background": {
+      "background.service_worker": ["script.js"]
+      
     }
 }
