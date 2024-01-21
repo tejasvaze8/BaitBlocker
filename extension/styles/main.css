@@ -23,7 +23,8 @@ h1 {
   #extensionImage {
     width: 225px; /* Adjust the width as needed */
     height: auto; /* Maintain aspect ratio */
-    /* You can use 'height' instead of 'width' if you want to set the height explicitly */
+    margin-top: 30px;
+    margin-bottom: 30px;
   }
   
   #summaryTitle {
