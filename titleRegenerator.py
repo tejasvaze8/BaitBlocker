@@ -1,8 +1,13 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 import requests
 from bs4 import BeautifulSoup
 import openai
 
-#Insert API Key
+app = Flask(__name__)
+CORS(app, resources={r"/generate_summary": {"origins": "*"}})  # Allow any origin
+
+#openai.api_key = Insert API Key
 
 def is_article(soup):
     # Check if the page seems to be an article (customize these conditions based on the structure)
@@ -39,16 +44,38 @@ def scrape_and_generate_summary(url):
             )
             
             revised_title = response['choices'][0]['text'].strip()
-            
-            # Print the revised title based on the content
-            print(f"Revised Title: {revised_title}")
+
+            # Return the result as a dictionary
+            return {'original_title': article_title, 'original_summary': summary, 'revised_title': revised_title}
 
         else:
-            print("Error: The provided URL does not seem to be an article. Please check your URL to make sure it is a valid link!")
+            return {'error': 'The provided URL does not seem to be an article. Please check your URL to make sure it is a valid link!'}
 
     else:
-        print(f"Failed to fetch content. Status code: {response.status_code}")
+        return {'error': f'Failed to fetch content. Status code: {response.status_code}'}
 
-# Example usage
-url_to_scrape = input("Enter the URL of the article: ")
-scrape_and_generate_summary(url_to_scrape)
+@app.route('/generate_summary', methods=['POST', 'OPTIONS'])
+def handle_generate_summary():
+    if request.method == 'OPTIONS':
+        # Respond to the preflight request
+        response = app.make_default_options_response()
+    else:
+        # Handle the actual POST request
+        data = request.json
+        url_to_scrape = data.get('url')
+
+        if url_to_scrape:
+            result = scrape_and_generate_summary(url_to_scrape)
+            return jsonify(result)
+
+        response = jsonify({'error': 'Invalid request. Please provide a valid URL in the request payload.'}), 400
+
+    # Allow the required headers for CORS
+    response.headers['Access-Control-Allow-Headers'] = 'Content-Type'
+    response.headers['Access-Control-Allow-Methods'] = 'POST, OPTIONS'
+    response.headers['Access-Control-Max-Age'] = '3600'  # Cache preflight response for 1 hour
+
+    return response
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
