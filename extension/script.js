@@ -15,7 +15,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 });
 function callApi(apiEndpoint, urlParameter) {
   // Construct the full API URL
-  const fullApiUrl = `${apiEndpoint}`;
+  const fullApiUrl = `${apiEndpoint}/generate_summary`;
 
   // Define the request headers
   const headers = {
@@ -30,7 +30,7 @@ function callApi(apiEndpoint, urlParameter) {
   fetch(fullApiUrl, {
     method: 'POST',
     headers: headers,
-    body: requestBody
+    body: requestBody,
   })
     .then(response => {
       // Check if the response status is OK (status code 200-299)
@@ -49,6 +49,8 @@ function callApi(apiEndpoint, urlParameter) {
       // Handle errors during the fetch operation
       console.error('Fetch error:', error);
     });
+
+  
 }
 
 var story = "In a quaint town, mysterious packages began arriving at doorsteps every Friday. No one knew the sender, yet the parcels held personalized gifts, uncannily fitting each recipient's desires. Speculation buzzed, and excitement grew with each delivery. As friendships formed over shared surprises, the once-quiet community blossomed into a tapestry of joy. Local businesses thrived, as townsfolk eagerly anticipated their weekly enchanting presents. The secret benefactor remained elusive, leaving the town enchanted in wonder. In the heart of uncertainty, the unspoken agreement was clear — the magic of the unknown had woven a tale of unity and kindness, forever altering their ordinary Fridays."
@@ -65,6 +67,7 @@ function openUrl() {
     new_Title(url);//change to new title later.
     generateSummary(story);
     createQuestion();
+    createAnswer(url);
   }
 }
 function showURL(urlT){
@@ -92,10 +95,20 @@ function generateSummary(summaryText){
   summary.textContent = summaryText;
 }
 function createQuestion(){
-  var question = document.getElementById("questionBox")
+  var question = document.getElementById("questionBox");
   if (question.style.visibility=='visible') {
     question.style.visibility = 'hidden';
   }
   else 
-    question.style.visibility = 'visible'
+    question.style.visibility = 'visible';
+}
+
+function createAnswer(text) {
+  var answer = document.getElementById("answerText");
+  answer.textContent = text;
+  if (answer.style.visibility=='visible') {
+    answer.style.visibility = 'hidden';
+  }
+  else 
+    answer.style.visibility = 'visible';  
 }

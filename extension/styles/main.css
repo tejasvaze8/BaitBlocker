@@ -40,6 +40,13 @@ h1 {
     text-justify: inter-word;
   }
 
+  #answerText {
+    margin: 10px;
+    text-align: justify;
+    text-justify: inter-word;
+    visibility: hidden;
+  }
+
   input {
     width: 70%;
     padding: 10px;

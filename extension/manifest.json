@@ -10,8 +10,11 @@
     },
     "permissions": [
         "storage",
-        "tabs"
+        "tabs",
+        "http://100.64.161.177:5000/"
     ],
+    "host_permissions": ["http://100.64.161.177:5000/"],
+
     "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self'"
     },
