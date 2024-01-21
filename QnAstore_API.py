@@ -15,7 +15,7 @@ app = Flask(__name__)
 CORS(app, resources={"/process_link": {"origins": "*"}})  # Allow any origin
 
 
-os.environ["OPENAI_API_KEY"] = "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"
+os.environ["OPENAI_API_KEY"] = "insert API key"
 MONGO_URI = "mongodb+srv://tvaze:gmjg94r0F7Y8fMWW@cluster0.koafm.mongodb.net/?retryWrites=true&w=majority"
 # initialize MongoDB python client
 client = MongoClient(MONGO_URI)
