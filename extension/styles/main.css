@@ -108,7 +108,7 @@ h1 {
       z-index: 9999;
       animation: displayFor4Seconds 4s linear forwards;
     }
-    
+
     img.error_image {
       width: 200px;
       height: auto;   
@@ -122,3 +122,4 @@ h1 {
         opacity: 0;
         display: none;
       }
+    }

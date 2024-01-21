@@ -2,6 +2,7 @@
 const apiEndpoint = 'http://100.64.161.177:5000/';
 const apiEndpoint2 = 'http://100.64.161.177:5000/';
 const apiEndpoint3 = 'http://100.64.161.177:5000/';
+const apiEndpointDelete = 'http://100.64.165.206:5000/delete_all';
 
 
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
@@ -36,6 +37,11 @@ function callApi(apiEndpoint, urlParameter) {
     })
     .then(data => {
       console.log(data);
+      if (data.Revised_summary == null) {
+        document.getElementById("loadingSpinner").style.display = "none";
+        document.getElementById("errorImage").style.display = "block";
+        return;
+      }
       new_Title(data.Revised_title);
       generateSummary(data.Revised_summary);
       createQuestion();
@@ -63,9 +69,33 @@ function openUrl() {
   if (url) {
     callApi(apiEndpoint, url);
     document.getElementById("loadingSpinner").style.display = "block";
+    deleteCache();
     //sendUrlEmbeded(url);  
     saveUrl(url);
   }
+}
+
+function deleteCache() {
+  const fullApiUrl = `${apiEndpointDelete}/generate_summary`;
+  const headers = {
+    'Content-Type': 'application/json',
+  };
+  fetch(fullApiUrl, {
+      method: 'GET',
+      headers: headers,
+  })     
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      console.log("sucess", data);      
+    })
+    .catch(error => {
+      console.error('Fetch error:', error);
+    });
 }
 
 function sendUrlEmbeded(url){
