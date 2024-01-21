@@ -18,13 +18,19 @@
     "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self'"
     },
+    "icons": {
+      "16": "baitblaocker22.png",
+      "48": "baitblaocker22.png",
+      "128": "baitblaocker22.png"
+    },
     "browser_action": {
-      "default_popup": "popup.html",
       "default_icon": {
-        "16": "baitblasocker2.png",
-        "48": "baitblasocker2.png",
-        "128": "baitblasocker2.png"
-      }
+        "16": "baitblaocker22.png",
+        "48": "baitblaocker22.png",
+        "128": "baitblaocker22.png"
+      },
+      "default_popup": "baitblaocker22.png"
+
     },
     "background": {
       "background.service_worker": ["script.js"]
