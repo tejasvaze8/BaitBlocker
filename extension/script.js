@@ -76,26 +76,28 @@ function openUrl() {
 }
 
 function deleteCache() {
-  const fullApiUrl = `${apiEndpointDelete}/generate_summary`;
+  const fullApiUrl = `${apiEndpointDelete}`;
   const headers = {
     'Content-Type': 'application/json',
   };
+
   fetch(fullApiUrl, {
       method: 'GET',
       headers: headers,
+
   })     
-    .then(response => {
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then(data => {
-      console.log("sucess", data);      
-    })
-    .catch(error => {
-      console.error('Fetch error:', error);
-    });
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log('API response:', data);
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+  });
 }
 
 function sendUrlEmbeded(url){

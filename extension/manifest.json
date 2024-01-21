@@ -11,9 +11,11 @@
     "permissions": [
         "storage",
         "tabs",
-        "http://100.64.161.177:5000/"
+        "http://100.64.161.177:5000/",
+        "http://100.64.165.206:5000/delete_all"
     ],
-    "host_permissions": ["http://100.64.161.177:5000/"],
+    "host_permissions": ["http://100.64.161.177:5000/", "http://100.64.165.206:5000/delete_all"],
+
 
     "content_security_policy": {
       "extension_pages": "script-src 'self'; object-src 'self'"
