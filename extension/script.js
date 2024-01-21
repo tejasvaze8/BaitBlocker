@@ -4,7 +4,7 @@ const apiEndpoint2 = 'http://100.64.161.177:5000/';
 const apiEndpoint3 = 'http://100.64.161.177:5000/';
 const apiEndpointDelete = 'http://100.64.165.206:5000/delete_all';
 
-
+// comment
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
   // tabs is an array of tab objects
   var currentTab = tabs[0];
