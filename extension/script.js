@@ -1,4 +1,6 @@
 // script.js
+const apiEndpoint = 'http://100.64.161.177:5000/';
+
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
   // tabs is an array of tab objects
   var currentTab = tabs[0];
@@ -11,7 +13,43 @@ chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
 
 
 });
+function callApi(apiEndpoint, urlParameter) {
+  // Construct the full API URL
+  const fullApiUrl = `${apiEndpoint}`;
 
+  // Define the request headers
+  const headers = {
+    'Content-Type': 'application/json',
+    // Add any additional headers if required by your API
+  };
+
+  // Construct the request body
+  const requestBody = JSON.stringify({ url: urlParameter });
+
+  // Make a POST request to the API
+  fetch(fullApiUrl, {
+    method: 'POST',
+    headers: headers,
+    body: requestBody
+  })
+    .then(response => {
+      // Check if the response status is OK (status code 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      // Parse the response body as JSON
+      return response.json();
+    })
+    .then(data => {
+      // Handle the data from the API response
+      console.log('API response:', data);
+      // You can do further processing or update UI based on the API response here
+    })
+    .catch(error => {
+      // Handle errors during the fetch operation
+      console.error('Fetch error:', error);
+    });
+}
 
 var story = "In a quaint town, mysterious packages began arriving at doorsteps every Friday. No one knew the sender, yet the parcels held personalized gifts, uncannily fitting each recipient's desires. Speculation buzzed, and excitement grew with each delivery. As friendships formed over shared surprises, the once-quiet community blossomed into a tapestry of joy. Local businesses thrived, as townsfolk eagerly anticipated their weekly enchanting presents. The secret benefactor remained elusive, leaving the town enchanted in wonder. In the heart of uncertainty, the unspoken agreement was clear — the magic of the unknown had woven a tale of unity and kindness, forever altering their ordinary Fridays."
 document.getElementById("openButton").addEventListener("click", function() {
@@ -21,7 +59,7 @@ document.getElementById("openButton").addEventListener("click", function() {
 function openUrl() {
   var url = document.getElementById("urlInput").value;
   if (url) {
-
+    callApi(apiEndpoint, url);
     saveUrl(url);
 
     new_Title(url);//change to new title later.
