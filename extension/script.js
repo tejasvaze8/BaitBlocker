@@ -82,7 +82,7 @@ function deleteCache() {
   };
 
   fetch(fullApiUrl, {
-      method: 'GET',
+      method: 'Post',
       headers: headers,
 
   })     
