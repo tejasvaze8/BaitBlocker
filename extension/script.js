@@ -1,8 +1,8 @@
 // script.js
 const apiEndpoint = 'http://100.64.161.177:5000/';
-const apiEndpoint2 = 'http://100.64.165.206:5002/process_link';
-const apiEndpoint3 = 'http://100.64.165.206:5003/ask_question';
-const apiEndpointDelete = 'http://100.64.165.206:5000/delete_all';
+const apiEndpoint2 = 'http://100.64.174.161:5002/process_link';
+const apiEndpoint3 = 'http://100.64.174.161:5003/ask_question';
+const apiEndpointDelete = 'http://100.64.174.161:5000/delete_all';
 
 // comment
 chrome.tabs.query({ active: true, currentWindow: true }, function(tabs) {
