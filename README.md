@@ -1,10 +1,14 @@
-# baitblocker
+# baitBlocker
 
 <img src="extension/baitblaocker22.png" alt="Extension Logo" width="400" height="266">
 
 ## Overview
 
 A Chrome extension that simplifies dense and clickbaity articles, for whenever you'd much rather have a tl;dr.
+
+Our extension will pull the link from the webpage you are currently browsing and will temporarily save the text to our database. We then will run a sentence embedding model to embed the text and create a simple RAG pipeline, injecting the knowledge in the webpage to the LLM. We have the option to crawl through links found in the original webpage to further the context for the LLM. 
+
+This allows you to ask questions about specific articles or even codebases. Similar to some emergent LLMs attatched to documentation of libraries, we can also start generating code from documentation of lesser known libraries that the LLM might not be familiar with.
 
 ## Features
 
